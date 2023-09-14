@@ -1,3 +1,5 @@
+import React from "react";
+import PropTypes from "prop-types";
 function CalculatorAppScreen({ input, result }) {
   return (
     <div className="calculator-app__screen">
@@ -6,5 +8,10 @@ function CalculatorAppScreen({ input, result }) {
     </div>
   );
 }
+
+CalculatorAppScreen.propTypes = {
+  input: PropTypes.func.isRequired,
+  result: PropTypes.func.isRequired,
+};
 
 export default CalculatorAppScreen;

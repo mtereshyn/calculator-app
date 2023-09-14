@@ -1,3 +1,5 @@
+import React from "react";
+import PropTypes from "prop-types";
 import Button from "./Button";
 
 function CalculatorAppMathOperations({ onMathOperationClick, onEqualsClick }) {
@@ -40,5 +42,10 @@ function CalculatorAppMathOperations({ onMathOperationClick, onEqualsClick }) {
     </div>
   );
 }
+
+CalculatorAppMathOperations.propTypes = {
+  onMathOperationClick: PropTypes.func.isRequired,
+  onEqualsClick: PropTypes.func.isRequired,
+};
 
 export default CalculatorAppMathOperations;

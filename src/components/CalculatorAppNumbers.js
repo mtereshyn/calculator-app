@@ -1,3 +1,5 @@
+import React from "react";
+import PropTypes from "prop-types";
 import Button from "./Button";
 import "../styles/CalculatorApp.scss";
 
@@ -90,4 +92,10 @@ function CalculatorAppNumbers({ onButtonClick, onClearClick }) {
     </div>
   );
 }
+
+CalculatorAppNumbers.propTypes = {
+  onButtonClick: PropTypes.func.isRequired,
+  onClearClick: PropTypes.func.isRequired,
+};
+
 export default CalculatorAppNumbers;
