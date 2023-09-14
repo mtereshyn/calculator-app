@@ -1,0 +1,230 @@
+.app-button--ac {
+  cursor: pointer;
+  background-color: #4d415f;
+  color: #ecdcfc;
+  border: none;
+  border-radius: 60px;
+
+  padding: 29px 124px;
+
+  text-align: center;
+
+  font-size: 30px;
+}
+
+.app-button {
+  cursor: pointer;
+  position: relative;
+
+  background-color: #3d4856;
+  color: #d8e3f5;
+
+  border: none;
+  border-radius: 50%;
+
+  text-align: center;
+  
+  max-width: 90px;
+}
+
+.app-button--division {
+  cursor: pointer;
+  min-width: 90px;
+  padding: 46px 31px;
+  &__line::before {
+    position: absolute;
+    bottom: 10px;
+    left: 13px;
+
+    content: "";
+
+    width: 6px;
+    height: 6px;
+
+    background-color: #d8e3f5;
+
+    border-radius: 50px;
+  }
+
+  &__line {
+    position: absolute;
+
+    left: 30px;
+    top: 48px;
+
+    width: 32px;
+    height: 4px;
+
+    background-color: #d8e3f5;
+  }
+
+  &__line::after {
+    position: absolute;
+    top: 10px;
+    left: 13px;
+
+    content: "";
+
+    width: 6px;
+    height: 6px;
+
+    background-color: #d8e3f5;
+
+    border-radius: 50px;
+  }
+}
+
+.app-button--multiply {
+  cursor: pointer;
+  min-width: 90px;
+  padding: 46px 31px;
+  &__line {
+    position: absolute;
+    top: 30px;
+    left: 43px;
+
+    background-color: #d8e3f5;
+
+    height: 40px;
+    width: 5px;
+
+    transform: rotate(45deg);
+  }
+  &__line::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 40px;
+    width: 5px;
+
+    background-color: #d8e3f5;
+
+    transform: rotate(90deg);
+  }
+}
+
+.app-button--minus {
+  cursor: pointer;
+  min-width: 90px;
+  padding: 46px 31px;
+  &__line {
+    position: absolute;
+
+    left: 30px;
+    top: 48px;
+
+    width: 32px;
+    height: 4px;
+
+    background-color: #d8e3f5;
+  }
+}
+
+.app-button--plus {
+  cursor: pointer;
+  min-width: 90px;
+  padding: 46px 31px;
+  &__line {
+    position: absolute;
+
+    left: 30px;
+    top: 48px;
+
+    width: 32px;
+    height: 4px;
+
+    background-color: #d8e3f5;
+  }
+
+  &__line::after {
+    content: "";
+    position: absolute;
+
+    top: -15px;
+    left: 14px;
+
+    height: 32px;
+    width: 4px;
+
+    background-color: #d8e3f5;
+  }
+}
+
+.app-button--equal {
+  cursor: pointer;
+  background-color: #1d4972;
+  min-width: 90px;
+  padding: 46px 31px;
+  &__line {
+    position: absolute;
+
+    left: 30px;
+    top: 44px;
+
+    background-color: #d8e3f5;
+
+    width: 32px;
+    height: 4px;
+  }
+  &__line::after {
+    content: "";
+    position: absolute;
+
+    top: 10px;
+    left: 0;
+
+    width: 32px;
+    height: 4px;
+
+    background-color: #d8e3f5;
+  }
+}
+
+.app-button--number {
+  cursor: pointer;
+  background-color: #212326;
+  color: #d8e3f5;
+
+  border: none;
+  border-radius: 50px;
+
+  padding: 29px 38px;
+
+  max-width: 90px;
+
+  font-size: 30px;
+  font-weight: bold;
+  &-comma {
+    max-width: 90px;
+    position: relative;
+    background-color: #212326;
+    color: #d8e3f5;
+    border: none;
+    border-radius: 50px;
+    font-size: 50px;
+    display: block;
+
+    padding: 45px 45px;
+
+    &__symbol {
+      position: absolute;
+      top: 2px;
+      left: 40px;
+    }
+  }
+}
+
+.app-button--number-zero {
+  cursor: pointer;
+  background-color: #212326;
+  color: #d8e3f5;
+  border: none;
+  border-radius: 60px;
+
+  padding: 27px 86px;
+
+  font-size: 33px;
+  text-align: center;
+}

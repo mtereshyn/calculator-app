@@ -1,0 +1,100 @@
+.calculator-app {
+  padding: 25px 0;
+}
+
+.calculator-app__container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #1b1b1b;
+  max-width: 425px;
+}
+
+.calculator-app__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 10px 13px;
+
+  background-color: #1b1b1b;
+}
+
+.calculator-app__list {
+  &-numbers {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &__wrapper {
+      display: flex;
+      gap: 5px;
+    }
+  }
+  &-math {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+}
+
+.calculator-app__screen {
+  display: flex;
+  flex-direction: column;
+  background-color: #2d3339;
+
+  padding-bottom: 33px;
+
+  border-radius: 0 0 40px 40px;
+
+  &-input {
+    background-color: #2d3339;
+    border: none;
+    padding: 19px 28px 0 0;
+
+    text-align: right;
+    color: #e2e2e2;
+    font-size: 70px;
+    height: 72px;
+    font-weight: 600;
+    font-family: Inter;
+    font-style: normal;
+
+    display: inline-block;
+    position: relative;
+  }
+
+  &-input::after {
+    content: "|";
+    display: inline-block;
+    animation: blinkCursor 0.5s infinite;
+    position: absolute;
+    font-size: 90px;
+    font-weight: normal;
+    font-family: "Courier New", Courier, monospace;
+    top: 8px;
+    color: #a2c9fa;
+    right: -5px;
+  }
+
+  &-result {
+    background-color: inherit;
+    padding-right: 28px;
+    text-align: right;
+    font-weight: normal;
+    font-size: 42px;
+    color: #c6c6c6;
+    height: 50px;
+  }
+}
+
+@keyframes blinkCursor {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
