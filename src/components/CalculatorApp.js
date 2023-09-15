@@ -12,7 +12,8 @@ function CalculatorApp() {
   const [expression, setExpression] = useState("");
 
   function formatNumber(number) {
-    let numberString = number;
+    let numberString = number.replace(".", ",");
+    
     if (numberString < 1000) {
       return numberString;
     }
@@ -23,8 +24,8 @@ function CalculatorApp() {
     }
     partsOfNumber.unshift(numberString);
     return partsOfNumber.join(" ");
+    
   }
-
   function handleButtonClick(value) {
     if (showResult) {
       setFirstNumber(value);
@@ -32,13 +33,13 @@ function CalculatorApp() {
       setOperation("");
       setResult("");
       setShowResult(false);
-      setExpression(value);
+      setExpression(value.replace(/\B(?=(\d{3})+(?!\d))/g, " "));
     } else if (expression === result) {
       setFirstNumber(value);
       setSecondNumber("");
       setOperation("");
       setShowResult(false);
-      setExpression(value);
+      setExpression(value.replace(/\B(?=(\d{3})+(?!\d))/g, " "));
     } else {
       if (!operation) {
         if (value === "," && firstNumber === "") {
@@ -48,7 +49,7 @@ function CalculatorApp() {
           return;
         }
         setFirstNumber(firstNumber + value);
-        setExpression(expression + value);
+        setExpression((firstNumber + value).replace(/\B(?=(\d{3})+(?!\d))/g, " "));
       } else {
         if (value === "," && secondNumber === "") {
           return;
@@ -57,24 +58,26 @@ function CalculatorApp() {
           return;
         }
         setSecondNumber(secondNumber + value);
-        setExpression(expression + value);
+        setExpression((firstNumber + operation + secondNumber + value).replace(/\B(?=(\d{3})+(?!\d))/g, " "));
       }
     }
   }
 
-  function handleMathOperationClick(operation) {
+
+  function handleMathOperationClick(clickedOperation) {
     if (showResult) {
       setFirstNumber(result);
       setSecondNumber("");
       setShowResult(false);
-      setExpression(result + operation);
+      setExpression(result + clickedOperation);
+      setOperation(clickedOperation);
+    } else if (!operation) {
+      setOperation(clickedOperation);
+      setExpression(expression + clickedOperation);
     } else {
-      if (firstNumber && secondNumber) {
-        calculateResult();
-        setShowResult(true);
-      }
-      setOperation(operation);
-      setExpression(expression + operation);
+      alert(
+        "You have already selected a math operation. Please perform the current calculation or clear the input."
+      );
     }
   }
 
@@ -88,7 +91,7 @@ function CalculatorApp() {
   }
 
   function calculateResult() {
-    const num1 = new Decimal(firstNumber.replace(",", "."));
+    const num1 = new Decimal(removeSpaceIfPresent(firstNumber.replace(",", ".")));
     const num2 = new Decimal(secondNumber.replace(",", "."));
 
     if (isNaN(num1) || isNaN(num2)) {
@@ -130,12 +133,20 @@ function CalculatorApp() {
     setExpression("");
   }
 
+  function removeSpaceIfPresent(number) {
+    if (typeof number === "string" && number.includes(" ")) {
+      return parseFloat(number.replace(/\s/g, ""));
+    }
+    return number;
+  }
+
   return (
     <div className="calculator-app">
       <div className="calculator-app__container">
         <CalculatorAppScreen
           input={expression}
           result={showResult ? result.replace(".", ",") : ""}
+          
         />
         <CalculatorAppButtons
           onButtonClick={handleButtonClick}

@@ -23,7 +23,7 @@
 .calculator-app__list {
   &-numbers {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 10px;
 
     &__wrapper {
@@ -56,7 +56,7 @@
 
     text-align: right;
     color: #e2e2e2;
-    font-size: 70px;
+    font-size: 9vh;
     height: 72px;
     font-weight: 600;
     font-family: Inter;
@@ -66,15 +66,15 @@
     position: relative;
   }
 
-  &-input::after {
+  &--cursor {
     content: "|";
     display: inline-block;
     animation: blinkCursor 0.5s infinite;
     position: absolute;
-    font-size: 90px;
+    font-size: var(--cursor-size);
     font-weight: normal;
     font-family: "Courier New", Courier, monospace;
-    top: 8px;
+    top: 10px;
     color: #a2c9fa;
     right: -5px;
   }
